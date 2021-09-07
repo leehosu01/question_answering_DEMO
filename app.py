@@ -65,11 +65,10 @@ Our product `Workspace` is currently in the final stages of commercialization, w
 streamlit.title('Find answer in the context')
 QPR = streamlit.experimental_get_query_params()
 #print(QPR)
-API_URL = QPR["modelUrl"][0]
-
+try:API_URL = QPR["modelUrl"][0]
+except: API_URL = None
 #API_URL = streamlit.sidebar.text_input("API URL", help = "API URL build from ainize.ai/teachable-nlp",
 #                                        value = "https://train-1wbuxrd77ywfldccdhp0-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/deberta-en-base-pretrained-finetune")
-
 
 use_sample_context = streamlit.sidebar.checkbox("use sample context", value = True)
 if use_sample_context:
@@ -89,4 +88,7 @@ if use_sample_question:
     default_question = streamlit.sidebar.selectbox("sample questions", samples[sample_id]['questions'], index = 0)
 else: default_question = None
 
-inference.raw_based_inference(API_URL, default_question, default_context )
+if API_URL is not None:
+    inference.raw_based_inference(API_URL, default_question, default_context )
+else:
+    streamlit.warning('you need to provide `modelUrl` parameter by URL')
