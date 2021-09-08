@@ -13,7 +13,7 @@ def load_result(API_URL:str, question:str, context:str, return_raw = 0):
                                     "question" : question,
                                     "return_raw" : return_raw,
                                     })
-    print(response.text)
+    #print(response.text)
     resp = response.json()[0]
     if return_raw:
         return json.loads(resp)
