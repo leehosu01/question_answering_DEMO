@@ -70,6 +70,11 @@ except: API_URL = None
 #API_URL = streamlit.sidebar.text_input("API URL", help = "API URL build from ainize.ai/teachable-nlp",
 #                                        value = "https://train-1wbuxrd77ywfldccdhp0-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/deberta-en-base-pretrained-finetune")
 #modelUrl=https://train-mjheysrcbek1hk17w3dj-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/deberta-en-base-pretrained-finetune-dev
+
+#deberta-en-base-pretrained-finetune
+#https://train-nwb0o8bipzd5zcn992ct-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/deberta-en-base-pretrained-finetune
+#distilbert-en-base-finetune
+#modelUrl=https://train-wobnmfrmuzrttyxrbjch-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/distilbert-en-base-finetune
 use_sample_context = streamlit.sidebar.checkbox("use sample context", value = True)
 if use_sample_context:
     use_sample_question = streamlit.sidebar.checkbox("use sample question", value = True)
