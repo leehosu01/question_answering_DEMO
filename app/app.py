@@ -93,8 +93,8 @@ if use_sample_question:
     default_question = streamlit.sidebar.selectbox("sample questions", samples[sample_id]['questions'], index = 0)
 else: default_question = None
 
-if API_URL is not None:
-    #inference.inference(API_URL, default_question, default_context )
-    inference.raw_based_inference(API_URL, default_question, default_context )
-else:
-    streamlit.warning('you need to provide `modelUrl` parameter by URL')
+if API_URL is None:
+    streamlit.warning('you need to provide `modelUrl` parameter by URL for inference with your model')
+    API_URL = "https://train-nwb0o8bipzd5zcn992ct-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/deberta-en-base-pretrained-finetune"
+#inference.inference(API_URL, default_question, default_context )
+inference.raw_based_inference(API_URL, default_question, default_context )
